@@ -8,7 +8,7 @@
 
   <meta
     name="description"
-    content="St. Tietjenfk — tailoring, curated luxury, showrooms and house collections. FK/RPG fictional brand."
+    content="St. Tietjenfk — fictional luxury tailoring house, curated fragrance, timepieces and European showrooms for RPG purposes."
   />
 
   <style>
@@ -16,8 +16,9 @@
 
     :root {
       --black: #050505;
-      --coal: #0c0c0c;
-      --deep: #101010;
+      --near-black: #090909;
+      --coal: #0f0f0f;
+      --deep: #141414;
       --graphite: #242424;
       --soft: #d8d0c4;
       --muted: #9d968e;
@@ -25,7 +26,8 @@
       --wine: #4b1111;
       --gold: #b49a63;
       --paper: #e7e0d4;
-      --white: #f3eee5;
+      --white: #f4eee5;
+      --cream-panel: #d8d0c4;
     }
 
     * {
@@ -49,18 +51,23 @@
       text-decoration: none;
     }
 
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
     .topbar {
       position: sticky;
       top: 0;
       z-index: 50;
-      height: 76px;
+      height: 78px;
       display: grid;
       grid-template-columns: auto 1fr auto;
       align-items: center;
       gap: 22px;
       padding: 0 28px;
       border-bottom: 1px solid rgba(216, 208, 196, 0.16);
-      background: rgba(5, 5, 5, 0.92);
+      background: rgba(5, 5, 5, 0.94);
       backdrop-filter: blur(14px);
     }
 
@@ -84,14 +91,13 @@
       font-family: "Playfair Display", Georgia, "Times New Roman", serif;
       font-size: 1.82rem;
       font-weight: 900;
-      letter-spacing: -0.03em;
+      letter-spacing: -0.035em;
       line-height: 1;
       color: var(--paper);
       white-space: nowrap;
     }
 
-    .brand-word span,
-    .hero h1 span {
+    .brand-word span {
       font-family: "Cormorant Garamond", Georgia, serif;
       font-size: 0.58em;
       font-weight: 700;
@@ -102,12 +108,12 @@
     .desktop-nav {
       display: flex;
       justify-content: center;
-      gap: 32px;
-      font-size: 0.78rem;
+      gap: 30px;
+      font-size: 0.74rem;
       text-transform: uppercase;
       letter-spacing: 0.24em;
       color: var(--muted);
-      font-weight: 700;
+      font-weight: 800;
     }
 
     .desktop-nav a:hover,
@@ -128,15 +134,16 @@
     }
 
     .hero-media {
-      min-height: 640px;
+      min-height: 670px;
       position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: hidden;
       background:
-        linear-gradient(rgba(0, 0, 0, 0.26), rgba(0, 0, 0, 0.76)),
-        radial-gradient(circle at 17% 10%, rgba(180, 154, 99, 0.18), transparent 34%),
+        linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.78)),
+        radial-gradient(circle at 16% 14%, rgba(180, 154, 99, 0.18), transparent 34%),
+        radial-gradient(circle at 82% 68%, rgba(75, 17, 17, 0.16), transparent 32%),
         linear-gradient(120deg, #181512 0%, #201d19 40%, #0b0b0b 41%, #020202 100%);
     }
 
@@ -154,8 +161,8 @@
     .hero-media::after {
       content: "";
       position: absolute;
-      inset: auto 9% 0 9%;
-      height: 76%;
+      inset: auto 8% 0 8%;
+      height: 78%;
       background:
         linear-gradient(
           160deg,
@@ -167,22 +174,11 @@
       opacity: 0.6;
     }
 
-    .hero-cutline {
-      position: absolute;
-      top: 48px;
-      font-family: "Playfair Display", Georgia, serif;
-      font-size: 1rem;
-      font-weight: 900;
-      color: var(--soft);
-      opacity: 0.92;
-      letter-spacing: -0.02em;
-    }
-
     .hero-overlay {
       position: relative;
       z-index: 2;
       text-align: center;
-      max-width: 900px;
+      max-width: 980px;
       padding: 92px 24px 76px;
     }
 
@@ -197,7 +193,7 @@
 
     .hero h1 {
       font-family: "Playfair Display", Georgia, "Times New Roman", serif;
-      font-size: clamp(3.8rem, 8vw, 7rem);
+      font-size: clamp(3.8rem, 7.2vw, 6.6rem);
       font-weight: 900;
       letter-spacing: -0.065em;
       line-height: 0.92;
@@ -212,7 +208,7 @@
       font-weight: 800;
       line-height: 1.35;
       margin: 30px auto 32px;
-      max-width: 760px;
+      max-width: 770px;
       color: var(--paper);
     }
 
@@ -247,6 +243,12 @@
       color: var(--soft);
     }
 
+    .btn.dark {
+      background: #111;
+      color: var(--soft);
+      border-color: rgba(216, 208, 196, 0.28);
+    }
+
     .ticker {
       display: flex;
       justify-content: space-between;
@@ -259,11 +261,13 @@
       font-weight: 600;
     }
 
-    .intro,
-    .catalog,
-    .showrooms,
-    .journal {
+    .section {
       padding: 90px 7vw;
+    }
+
+    .section.tight {
+      padding-top: 66px;
+      padding-bottom: 66px;
     }
 
     .section-title {
@@ -290,6 +294,100 @@
       margin: 16px auto 0;
     }
 
+    .collection-list {
+      background: var(--near-black);
+      border-bottom: 1px solid rgba(216, 208, 196, 0.13);
+    }
+
+    .collection-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .collection-tile {
+      min-height: 210px;
+      border: 1px solid rgba(216, 208, 196, 0.18);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent),
+        #0d0d0d;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .collection-tile::before {
+      content: "";
+      position: absolute;
+      inset: 22px;
+      border: 1px solid rgba(216, 208, 196, 0.1);
+    }
+
+    .collection-tile:nth-child(1) {
+      background: linear-gradient(135deg, #303030, #0b0b0b);
+    }
+
+    .collection-tile:nth-child(2) {
+      background: linear-gradient(135deg, #080808, #4b1111);
+    }
+
+    .collection-tile:nth-child(3) {
+      background: radial-gradient(circle, #4a4945, #0b0b0b);
+    }
+
+    .collection-tile:nth-child(4) {
+      background: radial-gradient(circle at 20% 20%, #b49a63, #0b0b0b 62%);
+    }
+
+    .collection-tile:nth-child(5) {
+      background: linear-gradient(135deg, #112017, #080808);
+    }
+
+    .collection-tile:nth-child(6) {
+      background: linear-gradient(135deg, #10141c, #070707);
+    }
+
+    .collection-tile:nth-child(7) {
+      background: linear-gradient(135deg, #d8d0c4, #2b2824);
+    }
+
+    .collection-tile:nth-child(8) {
+      background: linear-gradient(135deg, #0f0f0f, #252525);
+    }
+
+    .collection-tile span,
+    .collection-tile h3,
+    .collection-tile p {
+      position: relative;
+      z-index: 1;
+    }
+
+    .collection-tile span {
+      color: var(--gold);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-weight: 800;
+    }
+
+    .collection-tile h3 {
+      font-family: "Playfair Display", Georgia, serif;
+      color: var(--paper);
+      font-size: 1.55rem;
+      line-height: 1.1;
+      margin: 10px 0 6px;
+      letter-spacing: -0.035em;
+    }
+
+    .collection-tile p {
+      color: rgba(231, 224, 212, 0.72);
+      margin: 0;
+      font-size: 0.92rem;
+    }
+
     .intro-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -305,7 +403,7 @@
     }
 
     .atelier-card {
-      min-height: 390px;
+      min-height: 430px;
       display: flex;
       flex-direction: column;
       justify-content: end;
@@ -347,7 +445,9 @@
     .product-body h3,
     .feature-copy h2,
     .feature-panel h3,
-    .journal h3 {
+    .journal h3,
+    .mini-editorial h3,
+    .private-list h2 {
       font-family: "Playfair Display", Georgia, serif;
       color: var(--paper);
       font-size: 1.75rem;
@@ -386,14 +486,16 @@
     }
 
     .philosophy article,
-    .journal article {
+    .journal article,
+    .time-card {
       border-top: 1px solid var(--line);
       padding: 24px;
       background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent);
     }
 
     .philosophy p,
-    .journal p {
+    .journal p,
+    .time-card p {
       color: var(--muted);
     }
 
@@ -442,7 +544,7 @@
     }
 
     .suit-one::after {
-      content: "Three Piece";
+      content: "Tommy";
     }
 
     .suit-two {
@@ -458,7 +560,7 @@
     }
 
     .cap-one::after {
-      content: "Cap";
+      content: "Heritage";
     }
 
     .coat-one {
@@ -466,7 +568,7 @@
     }
 
     .coat-one::after {
-      content: "Long Coat";
+      content: "Vanguard";
     }
 
     .heaven {
@@ -528,11 +630,56 @@
       font-weight: 800;
     }
 
+    .mini-editorial {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 0;
+      border-top: 1px solid rgba(216, 208, 196, 0.14);
+      border-bottom: 1px solid rgba(216, 208, 196, 0.14);
+      background: var(--cream-panel);
+      color: #151515;
+    }
+
+    .mini-editorial .editorial-copy {
+      padding: 72px 7vw;
+    }
+
+    .mini-editorial h3 {
+      color: #151515;
+      font-size: clamp(2.2rem, 4.3vw, 4.3rem);
+    }
+
+    .mini-editorial p {
+      max-width: 660px;
+      color: #332f2a;
+    }
+
+    .editorial-panel {
+      min-height: 440px;
+      background:
+        linear-gradient(rgba(0,0,0,.1), rgba(0,0,0,.4)),
+        radial-gradient(circle at 50% 20%, rgba(75,17,17,.45), transparent 35%),
+        linear-gradient(135deg, #1b1b1b, #050505);
+      position: relative;
+    }
+
+    .editorial-panel::after {
+      content: "Private Fitting";
+      position: absolute;
+      right: 42px;
+      bottom: 38px;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 2.6rem;
+      font-weight: 900;
+      letter-spacing: -0.05em;
+      color: var(--paper);
+    }
+
     .split-feature {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 0;
-      min-height: 520px;
+      min-height: 540px;
       border-top: 1px solid rgba(216, 208, 196, 0.15);
       border-bottom: 1px solid rgba(216, 208, 196, 0.15);
     }
@@ -603,6 +750,43 @@
       background: linear-gradient(135deg, #0d1014, #1f1f1f);
     }
 
+    .scent-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 34px;
+    }
+
+    .scent-card {
+      padding: 24px;
+      min-height: 190px;
+      border: 1px solid rgba(216, 208, 196, 0.18);
+      background: linear-gradient(180deg, rgba(255,255,255,.05), transparent);
+    }
+
+    .scent-card h3 {
+      font-size: 1.3rem;
+    }
+
+    .scent-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .time-collections {
+      background: var(--near-black);
+    }
+
+    .time-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+    }
+
+    .time-card h3 {
+      font-size: 1.25rem;
+    }
+
     .showroom-grid {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
@@ -610,7 +794,7 @@
     }
 
     .showroom-grid article {
-      min-height: 170px;
+      min-height: 180px;
       border: 1px solid rgba(216, 208, 196, 0.22);
       padding: 20px;
       background: linear-gradient(145deg, rgba(216, 208, 196, 0.08), rgba(255, 255, 255, 0.01));
@@ -643,6 +827,47 @@
       color: var(--muted);
     }
 
+    .private-list {
+      background:
+        linear-gradient(rgba(0,0,0,.76), rgba(0,0,0,.82)),
+        radial-gradient(circle at 15% 20%, rgba(180,154,99,.17), transparent 36%),
+        #080808;
+      border-top: 1px solid rgba(216, 208, 196, 0.14);
+      border-bottom: 1px solid rgba(216, 208, 196, 0.14);
+      text-align: center;
+    }
+
+    .private-list h2 {
+      font-size: clamp(2.4rem, 5vw, 4.8rem);
+    }
+
+    .private-list p {
+      max-width: 700px;
+      margin: 0 auto 28px;
+      color: var(--muted);
+    }
+
+    .email-row {
+      max-width: 620px;
+      margin: 0 auto;
+      display: flex;
+      gap: 10px;
+    }
+
+    .email-row input {
+      flex: 1;
+      min-height: 50px;
+      padding: 0 18px;
+      background: #111;
+      border: 1px solid rgba(216, 208, 196, 0.28);
+      color: var(--soft);
+      font: inherit;
+    }
+
+    .email-row button {
+      cursor: pointer;
+    }
+
     .journal {
       background: #111;
     }
@@ -661,21 +886,38 @@
     }
 
     .footer {
-      padding: 42px 7vw;
+      padding: 50px 7vw;
       border-top: 1px solid rgba(216, 208, 196, 0.18);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
       color: var(--muted);
       font-size: 0.88rem;
     }
 
-    .footer p {
-      width: 100%;
-      text-align: center;
-      margin: 10px 0 0;
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr repeat(3, 1fr);
+      gap: 34px;
+      margin-bottom: 34px;
+    }
+
+    .footer h3 {
+      margin: 0 0 12px;
+      color: var(--paper);
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 1.2rem;
+    }
+
+    .footer a {
+      display: block;
+      margin: 6px 0;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+      border-top: 1px solid rgba(216, 208, 196, 0.12);
+      padding-top: 24px;
     }
 
     .back-top {
@@ -684,11 +926,18 @@
       color: var(--soft);
     }
 
-    @media (max-width: 980px) {
-      .topbar {
-        grid-template-columns: auto 1fr auto;
+    @media (max-width: 1100px) {
+      .collection-grid,
+      .scent-strip {
+        grid-template-columns: repeat(2, 1fr);
       }
 
+      .time-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 980px) {
       .desktop-nav {
         display: none;
       }
@@ -699,7 +948,8 @@
       }
 
       .intro-grid,
-      .split-feature {
+      .split-feature,
+      .mini-editorial {
         grid-template-columns: 1fr;
       }
 
@@ -717,6 +967,10 @@
       }
 
       .showroom-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-grid {
         grid-template-columns: repeat(2, 1fr);
       }
     }
@@ -739,21 +993,19 @@
       }
 
       .hero h1 {
-        font-size: 3.35rem;
+        font-size: 3.1rem;
       }
 
       .tagline {
         font-size: 1.18rem;
       }
 
-      .hero-actions {
+      .hero-actions,
+      .email-row {
         flex-direction: column;
       }
 
-      .intro,
-      .catalog,
-      .showrooms,
-      .journal {
+      .section {
         padding: 64px 20px;
       }
 
@@ -762,8 +1014,12 @@
         grid-template-columns: 1fr;
       }
 
+      .collection-grid,
       .product-grid,
-      .showroom-grid {
+      .showroom-grid,
+      .scent-strip,
+      .time-grid,
+      .footer-grid {
         grid-template-columns: 1fr;
       }
 
@@ -771,7 +1027,8 @@
         height: 230px;
       }
 
-      .feature-copy {
+      .feature-copy,
+      .mini-editorial .editorial-copy {
         padding: 64px 20px;
       }
 
@@ -791,14 +1048,14 @@
   <header class="topbar" id="top">
     <div class="left-nav">
       <button class="icon-btn" aria-label="Open menu">☰</button>
-
       <a class="brand-word" href="#top">St. Tietjen<span>fk</span></a>
     </div>
 
     <nav class="desktop-nav" aria-label="Main navigation">
       <a href="#house">The House</a>
-      <a href="#catalog">Catalog</a>
-      <a href="#creed">Creed</a>
+      <a href="#collections">Collections</a>
+      <a href="#catalog">Tailoring</a>
+      <a href="#creed">Fragrance</a>
       <a href="#timepieces">Timepieces</a>
       <a href="#showrooms">Showrooms</a>
     </nav>
@@ -820,19 +1077,17 @@
         role="img"
         aria-label="Editorial tailoring image placeholder"
       >
-        <div class="hero-cutline">www.stietjen.com</div>
-
         <div class="hero-overlay">
           <p class="eyebrow">FK — RPG · Fictional luxury house</p>
 
-          <h1>St. Tietjen<span>fk</span></h1>
+          <h1>Tailoring with purpose</h1>
 
           <p class="tagline">
             For those who live in the present with respect for the past.
           </p>
 
           <div class="hero-actions">
-            <a href="#catalog" class="btn primary">Explore our pieces</a>
+            <a href="#collections" class="btn primary">Explore the House</a>
 
             <a
               href="https://www.facebook.com/"
@@ -840,25 +1095,81 @@
               rel="noreferrer"
               class="btn ghost"
             >
-              Contact the House
+              Private Appointment
             </a>
           </div>
         </div>
       </div>
 
       <div class="ticker">
-        <span>
-          A brand that combines high quality tailoring with a touch of modernity.
-        </span>
-        <span>
-          Alfaiataria sob medida · Curadoria de luxo · Showrooms europeus
-        </span>
+        <span>A luxury tailoring house shaped by presence, discipline and legacy.</span>
+        <span>Alfaiataria sob medida · Curadoria de luxo · Showrooms europeus</span>
       </div>
     </section>
 
-    <section class="intro" id="house">
+    <section class="section collection-list" id="collections">
+      <div class="section-title center">
+        <p class="eyebrow">Collection list</p>
+        <h2>Explore by chapter</h2>
+        <p class="lead">
+          O catálogo não funciona como loja comum. Cada categoria é tratada como um capítulo da casa.
+        </p>
+      </div>
+
+      <div class="collection-grid">
+        <a class="collection-tile" href="#catalog">
+          <span>01</span>
+          <h3>Three-Piece Suits</h3>
+          <p>Structured tailoring, formal presence and 1920s silhouettes.</p>
+        </a>
+
+        <a class="collection-tile" href="#catalog">
+          <span>02</span>
+          <h3>Long Coats</h3>
+          <p>Winter authority, heavy fabric and controlled drama.</p>
+        </a>
+
+        <a class="collection-tile" href="#catalog">
+          <span>03</span>
+          <h3>Caps</h3>
+          <p>Tweed, heritage cuts and old-world attitude.</p>
+        </a>
+
+        <a class="collection-tile" href="#catalog">
+          <span>04</span>
+          <h3>Accessories</h3>
+          <p>Gloves, ties, pocket watches and finishing pieces.</p>
+        </a>
+
+        <a class="collection-tile" href="#creed">
+          <span>05</span>
+          <h3>Fragrance Room</h3>
+          <p>Niche perfumery as an extension of presence.</p>
+        </a>
+
+        <a class="collection-tile" href="#timepieces">
+          <span>06</span>
+          <h3>Timepieces</h3>
+          <p>Precision, permanence and German watchmaking art.</p>
+        </a>
+
+        <a class="collection-tile" href="#showrooms">
+          <span>07</span>
+          <h3>Showrooms</h3>
+          <p>Private appointments across selected European addresses.</p>
+        </a>
+
+        <a class="collection-tile" href="#journal">
+          <span>08</span>
+          <h3>House Notes</h3>
+          <p>Editorial releases, curated objects and private announcements.</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="section" id="house">
       <div class="section-title">
-        <p class="eyebrow">Meet St. Tietjen</p>
+        <p class="eyebrow">Meet the House</p>
         <h2>The House</h2>
       </div>
 
@@ -872,15 +1183,15 @@
           <h3>The brand</h3>
 
           <p>
-            St. Tietjenfk was born from the desire to bring to the market a
-            tailoring house that combines tradition and boldness, inspired by
-            the iconic structure of early twentieth-century elegance.
+            Born from the desire to bring to the market a tailoring house that
+            combines tradition and boldness, the brand is shaped by the iconic
+            structure of early twentieth-century elegance.
           </p>
 
           <p>
-            Founded by <strong>Dominic T. Antoniazzi</strong>, the brand
-            reflects transformation, ambition and creative discipline —
-            translating presence into fabric, scent and curated objects.
+            Founded by <strong>Dominic T. Antoniazzi</strong>, it reflects
+            transformation, ambition and creative discipline — translating
+            presence into fabric, scent and curated objects.
           </p>
 
           <div class="pill-row">
@@ -918,15 +1229,37 @@
       </article>
     </section>
 
-    <section class="catalog" id="catalog">
-      <div class="section-title center">
-        <p class="eyebrow">+50.000 satisfied customers · ★★★★★</p>
+    <section class="mini-editorial">
+      <div class="editorial-copy">
+        <p class="eyebrow">Private tailoring</p>
+        <h3>Every detail considered</h3>
+        <p>
+          A peça não começa no tecido. Começa na presença que o cliente deseja
+          carregar. Medidas, caimento, acabamento, ocasião e narrativa visual
+          são tratados como parte da mesma assinatura.
+        </p>
+        <a
+          class="btn dark"
+          href="https://www.facebook.com/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Request a fitting
+        </a>
+      </div>
 
-        <h2>Signature Collection</h2>
+      <div class="editorial-panel" aria-label="Private fitting visual placeholder"></div>
+    </section>
+
+    <section class="section catalog" id="catalog">
+      <div class="section-title center">
+        <p class="eyebrow">The House Selection · ★★★★★</p>
+
+        <h2>Signature Pieces</h2>
 
         <p class="lead">
-          Peças originais com nomes preservados, preços em euro e apresentação
-          editorial. O botão leva ao contato, não a checkout.
+          Peças com nomes originais, preços em euro e apresentação editorial.
+          O botão leva ao contato, não a checkout.
         </p>
       </div>
 
@@ -938,15 +1271,12 @@
             <p class="category">Three-piece suit</p>
             <h3>Tommy</h3>
             <p>
-              Structured three-piece tailoring with a 1920 silhouette and formal
-              presence.
+              Structured three-piece tailoring with a 1920 silhouette and formal presence.
             </p>
 
             <div class="price-row">
               <span>€1.890</span>
-              <a href="https://www.facebook.com/" target="_blank" rel="noreferrer">
-                Request
-              </a>
+              <a href="https://www.facebook.com/" target="_blank" rel="noreferrer">Request</a>
             </div>
           </div>
         </article>
@@ -958,15 +1288,12 @@
             <p class="category">Three-piece suit</p>
             <h3>Shelby</h3>
             <p>
-              Dark checked tailoring for clients who want sharp structure
-              without excess.
+              Dark checked tailoring for clients who want sharp structure without excess.
             </p>
 
             <div class="price-row">
               <span>€2.120</span>
-              <a href="https://www.facebook.com/" target="_blank" rel="noreferrer">
-                Request
-              </a>
+              <a href="https://www.facebook.com/" target="_blank" rel="noreferrer">Request</a>
             </div>
           </div>
         </article>
@@ -983,9 +1310,7 @@
 
             <div class="price-row">
               <span>€145</span>
-              <a href="https://www.facebook.com/" target="_blank" rel="noreferrer">
-                Request
-              </a>
+              <a href="https://www.facebook.com/" target="_blank" rel="noreferrer">Request</a>
             </div>
           </div>
         </article>
@@ -997,15 +1322,12 @@
             <p class="category">Long coat</p>
             <h3>The Vanguard</h3>
             <p>
-              Classic winter coat with a refined silhouette and exclusive red
-              lining.
+              Classic winter coat with a refined silhouette and exclusive red lining.
             </p>
 
             <div class="price-row">
               <span>€1.460</span>
-              <a href="https://www.facebook.com/" target="_blank" rel="noreferrer">
-                Request
-              </a>
+              <a href="https://www.facebook.com/" target="_blank" rel="noreferrer">Request</a>
             </div>
           </div>
         </article>
@@ -1017,15 +1339,12 @@
             <p class="category">Wedding tailoring</p>
             <h3>The Heaven</h3>
             <p>
-              Alfaiataria leve, tom atemporal e corte pensado para momentos
-              únicos.
+              Alfaiataria leve, tom atemporal e corte pensado para momentos únicos.
             </p>
 
             <div class="price-row">
               <span>€2.350</span>
-              <a href="https://www.facebook.com/" target="_blank" rel="noreferrer">
-                Request
-              </a>
+              <a href="https://www.facebook.com/" target="_blank" rel="noreferrer">Request</a>
             </div>
           </div>
         </article>
@@ -1037,15 +1356,12 @@
             <p class="category">Accessories</p>
             <h3>House Details</h3>
             <p>
-              Gloves, ties, pocket watches and finishing pieces for full
-              composition.
+              Gloves, ties, pocket watches and finishing pieces for full composition.
             </p>
 
             <div class="price-row">
               <span>from €90</span>
-              <a href="https://www.facebook.com/" target="_blank" rel="noreferrer">
-                Request
-              </a>
+              <a href="https://www.facebook.com/" target="_blank" rel="noreferrer">Request</a>
             </div>
           </div>
         </article>
@@ -1054,14 +1370,14 @@
 
     <section class="split-feature" id="creed">
       <div class="feature-copy">
-        <p class="eyebrow">CREED fragrance by St. Tietjen</p>
+        <p class="eyebrow">Curated fragrance</p>
 
-        <h2>Espaço Sensorial</h2>
+        <h2>The Olfactory Room</h2>
 
         <p>
-          Um espaço reservado aos que compreendem o valor da presença. Na St.
-          Tietjen, a tradição da alfaiataria encontra a sofisticação da
-          perfumaria de nicho.
+          Um espaço reservado aos que compreendem o valor da presença. A
+          tradição da alfaiataria encontra a sofisticação da perfumaria de
+          nicho.
         </p>
 
         <p>
@@ -1078,25 +1394,46 @@
         >
           Discover the fragrance
         </a>
+
+        <div class="scent-strip">
+          <article class="scent-card">
+            <h3>Aventus</h3>
+            <p>Powerful, smoky and memorable. A scent built around command.</p>
+          </article>
+
+          <article class="scent-card">
+            <h3>Green Irish Tweed</h3>
+            <p>Clean, green, aromatic. A classic signature for daylight presence.</p>
+          </article>
+
+          <article class="scent-card">
+            <h3>Silver Mountain Water</h3>
+            <p>Bright, mineral and cold. A sharper expression of refinement.</p>
+          </article>
+
+          <article class="scent-card">
+            <h3>Carmina</h3>
+            <p>Floral, dark and polished. A dramatic note for evening elegance.</p>
+          </article>
+        </div>
       </div>
 
       <div class="feature-panel scent-panel">
-        <span>100ml</span>
-        <h3>Green Irish Tweed</h3>
-        <p>Aromatic Fougère · Verde</p>
+        <span>Signature scent</span>
+        <h3>Find your presence</h3>
+        <p>Fragrance as memory · Perfumaria como assinatura</p>
       </div>
     </section>
 
     <section class="split-feature reverse" id="timepieces">
       <div class="feature-copy">
-        <p class="eyebrow">Glashütte Original</p>
+        <p class="eyebrow">Curated timepieces</p>
 
-        <h2>Time Elevated to Art</h2>
+        <h2>Time elevated to art</h2>
 
         <p>
-          Símbolo da relojoaria alemã de excelência, Glashütte Original integra
-          a curadoria de luxo da St. Tietjenfk como uma extensão da precisão,
-          da permanência e do legado.
+          Símbolo de excelência alemã, a curadoria de relógios funciona como uma
+          extensão da precisão, da permanência e do legado.
         </p>
 
         <p>
@@ -1121,7 +1458,45 @@
       </div>
     </section>
 
-    <section class="showrooms" id="showrooms">
+    <section class="section time-collections">
+      <div class="section-title center">
+        <p class="eyebrow">Watchmaking chapters</p>
+        <h2>Curated collections</h2>
+        <p class="lead">
+          Uma seleção organizada como capítulos de precisão: clássica, assimétrica,
+          esportiva, vintage e lunar.
+        </p>
+      </div>
+
+      <div class="time-grid">
+        <article class="time-card">
+          <h3>Senator</h3>
+          <p>Classically elegant, formal and permanent.</p>
+        </article>
+
+        <article class="time-card">
+          <h3>Pano</h3>
+          <p>Asymmetric dial architecture and modern mechanical presence.</p>
+        </article>
+
+        <article class="time-card">
+          <h3>Spezialist</h3>
+          <p>Sporting reliability, water, steel and precision.</p>
+        </article>
+
+        <article class="time-card">
+          <h3>Vintage</h3>
+          <p>Sixties and seventies inspiration with a contemporary finish.</p>
+        </article>
+
+        <article class="time-card">
+          <h3>Serenade</h3>
+          <p>Delicate forms, luminous details and lunar softness.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="showrooms">
       <div class="section-title center">
         <p class="eyebrow">Visit us in our showroom</p>
         <h2>European Appointments</h2>
@@ -1170,9 +1545,23 @@
       </div>
     </section>
 
-    <section class="journal">
+    <section class="section private-list">
+      <p class="eyebrow">Private list</p>
+      <h2>Receive house notes</h2>
+      <p>
+        Private releases, showroom announcements and selected pieces from the archive.
+        No noise. Only what belongs to the house.
+      </p>
+
+      <form class="email-row">
+        <input type="email" placeholder="email@example.com" aria-label="Email address" />
+        <button class="btn primary" type="button">Join the list</button>
+      </form>
+    </section>
+
+    <section class="section journal" id="journal">
       <div class="section-title center">
-        <p class="eyebrow">St. Tietjenfk ✂ NEWPOST® ★★★★★</p>
+        <p class="eyebrow">NEWPOST® ★★★★★</p>
         <h2>House Notes</h2>
       </div>
 
@@ -1208,17 +1597,40 @@
   </main>
 
   <footer class="footer">
-    <a href="#house">About us</a>
-    <a href="#catalog">Catalog</a>
-    <a href="#creed">Creed</a>
-    <a href="#showrooms">Showrooms</a>
-    <a href="https://www.facebook.com/" target="_blank" rel="noreferrer">
-      Contact
-    </a>
+    <div class="footer-grid">
+      <div>
+        <h3>St. Tietjenfk</h3>
+        <p>
+          A fictional luxury house created for FK — RPG purposes. Tailoring,
+          curated fragrance, timepieces and European showrooms.
+        </p>
+      </div>
 
-    <p>© All rights reserved to St. Tietjenfk · FAKE — RPG</p>
+      <div>
+        <h3>About</h3>
+        <a href="#house">The House</a>
+        <a href="#collections">Collections</a>
+        <a href="#showrooms">Showrooms</a>
+      </div>
 
-    <a href="#top" class="back-top">Back to top</a>
+      <div>
+        <h3>Need help?</h3>
+        <a href="https://www.facebook.com/" target="_blank" rel="noreferrer">Contact</a>
+        <a href="#catalog">Catalog</a>
+        <a href="#journal">House Notes</a>
+      </div>
+
+      <div>
+        <h3>Language</h3>
+        <a href="#top">English / PT-BR</a>
+        <a href="#top">FAKE — RPG</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© All rights reserved to St. Tietjenfk · FAKE — RPG</span>
+      <a href="#top" class="back-top">Back to top</a>
+    </div>
   </footer>
 </body>
 </html>
